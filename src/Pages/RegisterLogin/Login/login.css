@@ -1,40 +1,58 @@
 .register {
-    background-image: linear-gradient(
-        to top,
-        aliceblue,
-        #f2fef8
-    );
     border-radius: 8px;
     width: 35%;
     margin: 0 auto;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-.input-form:focus{
-    box-shadow: none!important;
-    border: 1px solid #ced4da!important;
+.input-form:focus {
+    box-shadow: none !important;
+    border: 1px solid #ced4da !important;
 }
 
-input#formBasicCheckbox,label.form-check-label{
-    box-shadow: none!important;
+input#formBasicCheckbox,
+label.form-check-label {
+    box-shadow: none !important;
     cursor: pointer;
 }
-.have-an-account:focus{
-    box-shadow: none!important;
+.have-an-account:focus {
+    box-shadow: none !important;
     cursor: pointer;
 }
-.forgot-password a{
+.forgot-password a {
     color: #25aae1;
     text-decoration: none;
 }
-.forgot-password a:hover{
+.forgot-password a:hover {
     color: gray;
 }
-.sign-toggle a{
+.sign-toggle a {
     text-decoration: none;
 }
-.sign-toggle a:hover{
+.sign-toggle a:hover {
     text-decoration: none;
     color: gray;
+}
+.btn-custom,.reg {
+    font-size: 16px;
+    padding: 6px 20px 6px;
+    border: 2px solid #008037;
+    background-color: #008037;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    transition: 0.25s ease-in;
+    color: #fff;
+}
+.reg:disabled,
+.reg[disabled]{
+    border: 2px solid #6bb98d;
+    background-color: #6bb98d;
+}
+.btn-custom:hover {
+    background-color: transparent;
+    color: #008037;
+    text-decoration: none;
 }

@@ -3,6 +3,7 @@ import auth from "../../../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./SocialLogin.css";
+import Loading from "../../Shared/Loading/Loading";
 const SocialLogin = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,11 +18,7 @@ const SocialLogin = () => {
         navigate(from, { replace: true });
     }
     if (loading) {
-        loadingElement = (
-            <div>
-                <p className="text-info">Loading...</p>
-            </div>
-        );
+        return <Loading></Loading>;
     }
     if (error) {
         errorElement = (

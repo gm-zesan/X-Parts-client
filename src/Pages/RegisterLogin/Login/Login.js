@@ -9,7 +9,6 @@ import {
 import "./login.css";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import Header from "../../Shared/Header/Header";
 import Loading from "../../Shared/Loading/Loading";
 const Login = () => {
     const navigate = useNavigate();
@@ -20,28 +19,30 @@ const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
-    const [user1] = useAuthState(auth);
+    // const [user1] = useAuthState(auth);
 
-    if (user1) {
-        const url = `https://desolate-plateau-21312.herokuapp.com/login`;
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({ email: user1.email }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                localStorage.setItem("accessToken", data.token);
-                navigate(from, { replace: true });
-            });
-    }
+    // if (user1) {
+    //     const url = `https://desolate-plateau-21312.herokuapp.com/login`;
+    //     fetch(url, {
+    //         method: "POST",
+    //         headers: {
+    //             "content-type": "application/json",
+    //         },
+    //         body: JSON.stringify({ email: user1.email }),
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             localStorage.setItem("accessToken", data.token);
+    //             navigate(from, { replace: true });
+    //         });
+    // }
 
     if (loading) {
         return <Loading></Loading>;
     }
-
+    if (user) {
+        navigate(from, { replace: true });
+    }
     if (error) {
         errorElement = (
             <div>
@@ -82,9 +83,9 @@ const Login = () => {
                         />
                     </Form.Group>
 
-                    <Button className="btn-custom-special mt-3" type="submit">
+                    <button className="btn-custom mt-3" type="submit">
                         Login
-                    </Button>
+                    </button>
                     <div className="forgot-password mt-3">
                         <Link to="/forgotPass">Forgot Password</Link>
                     </div>

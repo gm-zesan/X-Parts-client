@@ -1,25 +1,24 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import SocialLogin from "../SocialLogin/SocialLogin";
-import Header from "../../Shared/Header/Header";
 import Loading from "../../Shared/Loading/Loading";
 const Register = () => {
     const [terms, setTerms] = useState(false);
     const navigate = useNavigate();
 
     let errorElement;
-    const [createUserWithEmailAndPassword, user, loading, error] =
-        useCreateUserWithEmailAndPassword(auth, { sendEmailVerification :true});
+    const [createUserWithEmailAndPassword, loading, error] =
+        useCreateUserWithEmailAndPassword(auth, {
+            sendEmailVerification: true,
+        });
 
     const [updateProfile] = useUpdateProfile(auth);
 
-    
     if (loading) {
         return <Loading></Loading>;
     }
@@ -31,7 +30,7 @@ const Register = () => {
             </div>
         );
     }
-    
+
     const handleRegister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -43,7 +42,6 @@ const Register = () => {
     };
     return (
         <div>
-            <Header></Header>
             <div className="my-5 mx-auto">
                 <div className="register p-5">
                     <h2 className="text-center text-info pb-3">Registration</h2>
@@ -90,13 +88,13 @@ const Register = () => {
                                 label="Accept terms and conditions"
                             />
                         </Form.Group>
-                        <Button
+                        <button
                             disabled={!terms}
-                            className="btn-custom-special"
+                            className="reg"
                             type="submit"
                         >
                             Register
-                        </Button>
+                        </button>
                     </Form>
                     {errorElement}
                     <p className="text-center sign-toggle mt-3">
@@ -105,7 +103,6 @@ const Register = () => {
                             Login
                         </Link>
                     </p>
-                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
