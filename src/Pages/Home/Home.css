@@ -1,0 +1,198 @@
+/* Banner */
+.hero-container {
+    background-image: url("../../images/banner/bb.jpg");
+    max-height: 500px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    background-attachment: fixed;
+}
+.hero-container .heading {
+    margin-left: auto;
+    text-align: right;
+    padding: 0px 50px 0px 0px;
+}
+.hero-container .heading h2 {
+    font-size: 4.5em;
+    font-weight: 700;
+    color: #008037;
+}
+.hero-container .heading p {
+    font-size: 3em;
+    margin: 16px 0px 38px;
+    font-weight: 600;
+}
+.hero-container .heading a {
+    font-size: 14px;
+    background-color: #008037;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 19px;
+    border: 2px double #008037;
+    text-transform: uppercase;
+}
+/* banner */
+.welcome-wrap{
+    margin-top: 5rem;
+}
+.welcome-wrap h2{
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+
+/* parts */
+
+.section-title{
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 7rem;
+}
+.section-title span{
+    color: #008037;
+}
+
+/* Single Parts */
+.card-degine {
+    padding: 35px 25px;
+    border-radius: 10px !important;
+    border: none !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.soldout-badge {
+    transform: rotate(-45deg) !important;
+    position: absolute;
+}
+.card-body {
+    padding-bottom: 0 !important;
+    padding-top: 0!important;
+}
+.card-body h3 {
+    text-transform: uppercase;
+    color: #000;
+}
+.card-body h6 {
+    color: #000;
+}
+.card-body p {
+    color: rgb(91, 91, 91);
+    font-size: 15px;
+    text-align: justify;
+}
+.btn-custom {
+    font-size: 16px;
+    padding: 6px 20px 6px;
+    border: 2px solid #008037;
+    background-color: #008037;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: 0.25s ease-in;
+    color: #fff;
+}
+.btn-custom:hover {
+    background-color: transparent;
+    color: #008037;
+    text-decoration: none;
+}
+.card-footer {
+    background: none !important;
+}
+/* review */
+.test-wrap{
+  background: #fdfcfa;
+}
+.testimonial{
+    width: 50%;
+    margin-top: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+.testimonial h2{
+    margin-bottom: 5rem;
+    font-weight: 700;
+}
+.testimonial .slick-arrow.slick-prev,
+.testimonial .slick-arrow.slick-next {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  border-radius: 5px;
+}
+.testimonial .slick-prev::before,
+.testimonial .slick-next::before {
+  display: none;
+}
+.testimonial .slick-arrow.slick-next {
+  right: -70px;
+}
+.testimonial .slick-arrow.slick-prev {
+  left: -70px;
+}
+.testimonial .slick-dots li button:before {
+  font-size: 15px;
+}
+.testimonial .slick-dots li {
+  top: 15px;
+}
+.single-testimonial {
+    text-align: center;
+}
+.usertest {
+    font-weight: 600;
+    color: #008037;
+}
+
+/* summary */
+.bg1{
+	margin-top: 70px;
+	background-image: url(../../images/banner/bb.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: auto;
+	color: #fff;
+}
+.overlayuser{
+	background-color: #262626;
+	opacity: 0.7;
+	padding: 80px 0;
+}
+.overlayuser h2{
+	margin-bottom: 20px;
+	font-weight: normal;
+}
+.overlayuser .p{
+ width: 60%;
+}
+.button .btn{
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #008037;
+	color: #fff;
+    border: 2px solid #008037;
+}
+.button .b:hover{
+  background-color: transparent;
+  color: #fff;
+}
+.button .outline{
+	background: transparent;
+	color: #fff
+}
+.button .outline:hover{
+	background: #008037;
+	color: #fff;
+    border: 2px solid #008037!important;
+}

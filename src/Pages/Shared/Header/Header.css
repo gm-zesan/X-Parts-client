@@ -1,0 +1,40 @@
+
+nav.navbar {
+    height: 70px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.navbar-nav {
+    align-items: center;
+}
+.ms-auto.navbar-nav {
+    background-color: #fff;
+}
+.logo {
+    max-width: 170px;
+}
+img.logo {
+    padding-top: 9px;
+    margin-left: -24px;
+}
+a.nav-link {
+    font-family: "PT Sans", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0px 14px;
+    border: none;
+}
+a.nav-link:hover {
+    border-bottom: 2px solid #008037 !important;
+    transition: 0.5s all ease;
+}
+.log-detail {
+    background-color: transparent;
+    margin-right: -8px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+}
