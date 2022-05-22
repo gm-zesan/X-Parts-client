@@ -83,7 +83,7 @@ const Login = () => {
                         />
                     </Form.Group>
 
-                    <button className="btn-custom mt-3" type="submit">
+                    <button className="btn-custom mt-3 w-100" type="submit">
                         Login
                     </button>
                     <div className="forgot-password mt-3">

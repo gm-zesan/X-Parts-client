@@ -8,6 +8,12 @@ import Login from './Pages/RegisterLogin/Login/Login';
 import Register from './Pages/RegisterLogin/Registration/Registration';
 import RequireAuth from "./Pages/RegisterLogin/RequireAuth/RequireAuth";
 import Purchase from './Pages/Purchase/Purchase';
+import ForgotPass from './Pages/RegisterLogin/ForgotPass/ForgotPass';
+import { Toaster } from 'react-hot-toast';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import Review from './Pages/Dashboard/Review';
+import Profile from './Pages/Dashboard/Profile';
 
 function App() {
   return (
@@ -24,9 +30,26 @@ function App() {
                       </RequireAuth>
                   }
               ></Route>
+              <Route
+                  path="dashboard"
+                  element={
+                      <RequireAuth>
+                          <Dashboard />
+                      </RequireAuth>
+                  }
+              >
+                  <Route index element={<MyOrders />} />
+                  <Route path="review" element={<Review />} />
+                  <Route path="profile" element={<Profile />} />
+              </Route>
               <Route path="/login" element={<Login></Login>}></Route>
+              <Route
+                  path="/forgotpass"
+                  element={<ForgotPass></ForgotPass>}
+              ></Route>
               <Route path="/register" element={<Register></Register>}></Route>
           </Routes>
+          <Toaster position="top-center" reverseOrder={true} />
           <Footer></Footer>
       </div>
   );

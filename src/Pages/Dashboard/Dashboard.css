@@ -1,0 +1,20 @@
+.sidebar-wrapper {
+    transition: 0.6s;
+    max-width: 220px;
+    width: 100%;
+    opacity: 1;
+}
+.sidebar-wrapper a {
+    white-space: nowrap;
+}
+.border-end.bg-white.sidebar-wrapper.sidebar {
+    max-width: 0px;
+    overflow: hidden;
+    opacity: 0;
+}
+.dashboard_menu {
+    position: fixed;
+    top: 80px;
+    z-index: 99;
+    right: 10%;
+}

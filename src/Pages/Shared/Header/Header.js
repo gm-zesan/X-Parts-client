@@ -5,7 +5,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import CustomLink from "../CustomeLink/CustomeLink";
-// import logo from "../../../logo.png";
 import "./Header.css";
 
 const Header = () => {
@@ -39,31 +38,13 @@ const Header = () => {
                             <CustomLink className="nav-link" to="/blog">
                                 Blog
                             </CustomLink>
-                            {/* {user && (
+                            {user && (
                                 <>
-                                    <CustomLink
-                                        className="nav-link"
-                                        to="/items"
-                                    >
-                                        Manage-Item
-                                    </CustomLink>
-                                    <CustomLink
-                                        className="nav-link"
-                                        to="/myitems"
-                                    >
-                                        My-Item
-                                    </CustomLink>
-                                    <CustomLink
-                                        className="nav-link"
-                                        to="/additem"
-                                    >
-                                        Add-Item
+                                    <CustomLink className="nav-link" to="/dashboard">
+                                        Dashboard
                                     </CustomLink>
                                 </>
-                            )} */}
-                            <CustomLink className="nav-link" to="/about">
-                                Dashboard
-                            </CustomLink>
+                            )}
                         </Nav>
                         <Nav className="ms-auto">
                             {user ? (
