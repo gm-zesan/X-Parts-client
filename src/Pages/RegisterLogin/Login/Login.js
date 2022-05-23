@@ -19,23 +19,23 @@ const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
-    // const [user1] = useAuthState(auth);
+    const [user1] = useAuthState(auth);
 
-    // if (user1) {
-    //     const url = `https://desolate-plateau-21312.herokuapp.com/login`;
-    //     fetch(url, {
-    //         method: "POST",
-    //         headers: {
-    //             "content-type": "application/json",
-    //         },
-    //         body: JSON.stringify({ email: user1.email }),
-    //     })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             localStorage.setItem("accessToken", data.token);
-    //             navigate(from, { replace: true });
-    //         });
-    // }
+    if (user1) {
+        const url = `http://localhost:5000/login`;
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ email: user1.email }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.token);
+                navigate(from, { replace: true });
+            });
+    }
 
     if (loading) {
         return <Loading></Loading>;

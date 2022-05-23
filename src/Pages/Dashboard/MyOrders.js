@@ -1,6 +1,40 @@
-import React from 'react';
-
+import axios from "axios";
+import { signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 const MyOrders = () => {
+    const [user] = useAuthState(auth);
+    const [myOrders, setMyOrders] = useState([]);
+    const navigate = useNavigate();
+        useEffect(() => {
+            const getOrders = async () => {
+                const email = user?.email;
+                const url = `http://localhost:5000/myorders?email=${email}`;
+                try {
+                    const { data } = await axios.get(url, {
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem(
+                                "accessToken"
+                            )}`,
+                        },
+                    });
+                    console.log(data);
+                } catch (error) {
+                    if (
+                        error.response.status === 401 ||
+                        error.response.status === 403
+                    ) {
+                        signOut(auth);
+                        navigate("/login");
+                        toast.error(error.message);
+                    }
+                }
+            };
+            getOrders();
+        }, [user]);
     return (
         <div>
             <h2 className="my-5 text-center">
@@ -19,21 +53,23 @@ const MyOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>12434424</td>
-                            <td>Motors</td>
-                            <td>230</td>
-                            <td>$ 450</td>
-                            <td>
-                                <button
-                                    type="button"
-                                    class="btn btn-dark btn-sm rounded-circle"
-                                >
-                                    Small button
-                                </button>
-                            </td>
-                        </tr>
+                        {myOrders.map((myorder) => (
+                            <tr key={myorder._id}>
+                                <th scope="row">1</th>
+                                <td>{myorder._id}</td>
+                                <td>{ myorder.product}</td>
+                                <td>{ myorder.quantity}</td>
+                                <td>$ {myorder.totalPrice}</td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        class="btn btn-dark btn-sm rounded-circle"
+                                    >
+                                        Small button
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
