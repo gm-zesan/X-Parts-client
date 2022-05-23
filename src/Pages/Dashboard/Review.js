@@ -23,7 +23,6 @@ const Review = () => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
                 toast.success("Review posted successfully");
                 event.target.reset();
             });

@@ -1,19 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Purchase = () => {
     const [user] = useAuthState(auth);
-    const { orderId } = useParams();
-    const [quantity, setQuantity] = useState(100);
+    const { productId } = useParams();
+    const [product, setProduct] = useState({});
+    useEffect(() => {
+        const url = `http://localhost:5000/order/${productId}`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                setProduct(data);
+            });
+    }, [productId]);
 
-    const handleIncrease = (e) => {
-        setQuantity(quantity + 1);
-    };
-    const handleDecrease = (e) => {
-        setQuantity(quantity - 1);
+    const hanldeOrder = (event) => {
+        event.preventDefault();
+        const product = event.target.product.value;
+        const price = event.target.price.value;
+        const quantity = event.target.quantity.value;
+        const totalPrice = price * quantity;
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const phone = event.target.phone.value;
+        const address = event.target.address.value;
+
+        const url = `http://localhost:5000/order`;
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({
+                product,
+                quantity,
+                totalPrice,
+                name,
+                email,
+                phone,
+                address
+            }),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                toast.success("Review posted successfully");
+                event.target.reset();
+                
+            });
     };
     return (
         <div className="container my-5">
@@ -23,33 +61,10 @@ const Purchase = () => {
                 </div>
 
                 <div className="col-md-6">
-                    <p className="h2">Order Id:{orderId}</p>
-                    <p className="h2">name</p>
-                    <p className="h4">Price : $ price per KG</p>
-                    <p className="desc">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quos ipsa quis aliquid distinctio totam dolorem, maxime
-                        cumque hic assumenda quibusdam.
-                    </p>
-                    <button onClick={handleDecrease} className="btn-custom">
-                        -
-                    </button>
-                    <span
-                        style={{
-                            width: "80px",
-                            display: "inline-block",
-                        }}
-                    >
-                        <input
-                            className="form-control text-center"
-                            type="number"
-                            name="quantity"
-                            value={quantity}
-                        />
-                    </span>
-                    <button onClick={handleIncrease} className="btn-custom">
-                        +
-                    </button>
+                    <p className="h2">Order Id:{productId}</p>
+                    <p className="h2">{product.name}</p>
+                    <p className="h4">Price : $ {product.price} per ps</p>
+                    <p className="desc">{product.description}</p>
                 </div>
             </div>
             <div className="or-container">
@@ -61,9 +76,38 @@ const Purchase = () => {
                 <span style={{ color: "#008037" }}>Information</span> for place
                 order
             </h2>
-            <Form>
+            <Form onSubmit={hanldeOrder}>
                 <div className="row">
                     <div className="col-md-5 mx-auto">
+                        <Form.Label className="h5">Product</Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Control
+                                type="text"
+                                name="product"
+                                value={product.name}
+                                disabled
+                            />
+                        </Form.Group>
+                        <Form.Label className="h5">Quantity</Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Control
+                                type="text"
+                                name="quantity"
+                                placeholder="Enter quantity minimum 100 ps"
+                                required
+                            />
+                        </Form.Group>
+                        <Form.Label className="h5">
+                            Price pre product
+                        </Form.Label>
+                        <Form.Group className="mb-3">
+                            <Form.Control
+                                type="text"
+                                name="price"
+                                value={product.price}
+                                disabled
+                            />
+                        </Form.Group>
                         <Form.Label className="h5">Name</Form.Label>
                         <Form.Group className="mb-3">
                             <Form.Control
@@ -88,6 +132,7 @@ const Purchase = () => {
                                 type="text"
                                 name="phone"
                                 placeholder="Phone number"
+                                required
                             />
                         </Form.Group>
                         <Form.Label className="h5">Address</Form.Label>
@@ -97,9 +142,13 @@ const Purchase = () => {
                                 name="address"
                                 placeholder="Type your address"
                                 rows="3"
+                                required
                             ></textarea>
                         </Form.Group>
-                        <button type="submit" className="btn-custom w-100 mt-3 mb-5">
+                        <button
+                            type="submit"
+                            className="btn-custom w-100 mt-3 mb-5"
+                        >
                             Place Order
                         </button>
                     </div>

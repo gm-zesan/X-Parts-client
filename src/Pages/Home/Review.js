@@ -4,8 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import avt1 from "../../images/avatar/1 (1).png";
-import avt2 from "../../images/avatar/1 (2).png";
-import avt3 from "../../images/avatar/1 (3).png";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import Rating from "material-ui-rating/lib/components/Rating/Rating";
 const PreviousBtn = (props) => {
@@ -37,13 +35,13 @@ const Review = () => {
                 <h2 className="text-center">
                     TESTI<span style={{ color: "#008037" }}>MONIAL</span>
                 </h2>
-                {reviews.map((review) => (
-                    <Slider
-                        prevArrow={<PreviousBtn />}
-                        nextArrow={<NextBtn />}
-                        dots
-                        autoplay
-                    >
+                <Slider
+                    prevArrow={<PreviousBtn />}
+                    nextArrow={<NextBtn />}
+                    dots
+                    autoplay
+                >
+                    {reviews.map((review) => (
                         <div className="single-testimonial">
                             <Avatar
                                 className="mx-auto"
@@ -71,8 +69,8 @@ const Review = () => {
                                 Businessman
                             </p>
                         </div>
-                    </Slider>
-                ))}
+                    ))}
+                </Slider>
             </div>
         </div>
     );
