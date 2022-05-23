@@ -66,7 +66,6 @@ const Review = () => {
                                 }}
                             >
                                 <span className="usertest">{review.name}</span>{" "}
-                                Businessman
                             </p>
                         </div>
                     ))}

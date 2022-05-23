@@ -18,3 +18,14 @@
     z-index: 99;
     right: 10%;
 }
+.addproduct {
+    width: 80%;
+    padding: 3rem;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+.input-form:focus{
+    box-shadow: none!important;
+    border: 1px solid #ced4da!important;
+}
