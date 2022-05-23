@@ -36,10 +36,10 @@ const Dashboard = () => {
                         Add a Review
                     </Link>
                     <Link
-                        to="review"
+                        to="alluser"
                         class="list-group-item list-group-item-action list-group-item-light p-3"
                     >
-                        ami admin
+                        All User
                     </Link>
 
                     <Link
