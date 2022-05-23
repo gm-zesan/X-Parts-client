@@ -7,17 +7,23 @@ import {
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../../Hooks/useToken";
 const Register = () => {
     const [terms, setTerms] = useState(false);
     const navigate = useNavigate();
 
     let errorElement;
-    const [createUserWithEmailAndPassword, loading, error] =
+    const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth, {
             sendEmailVerification: true,
         });
 
     const [updateProfile] = useUpdateProfile(auth);
+    const [token] = useToken(user);
+
+    if (token) {
+        navigate("/");
+    }
 
     if (loading) {
         return <Loading></Loading>;
@@ -29,6 +35,9 @@ const Register = () => {
                 <p className="text-danger">Error: {error?.message}</p>
             </div>
         );
+    }
+    if (user) {
+        navigate("/");
     }
 
     const handleRegister = async (event) => {
@@ -88,11 +97,7 @@ const Register = () => {
                                 label="Accept terms and conditions"
                             />
                         </Form.Group>
-                        <button
-                            disabled={!terms}
-                            className="reg"
-                            type="submit"
-                        >
+                        <button disabled={!terms} className="reg" type="submit">
                             Register
                         </button>
                     </Form>

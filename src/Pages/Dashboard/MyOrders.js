@@ -21,7 +21,7 @@ const MyOrders = () => {
                             )}`,
                         },
                     });
-                    console.log(data);
+                    setMyOrders(data);
                 } catch (error) {
                     if (
                         error.response.status === 401 ||
@@ -57,15 +57,15 @@ const MyOrders = () => {
                             <tr key={myorder._id}>
                                 <th scope="row">1</th>
                                 <td>{myorder._id}</td>
-                                <td>{ myorder.product}</td>
-                                <td>{ myorder.quantity}</td>
+                                <td>{myorder.product}</td>
+                                <td>{myorder.quantity}</td>
                                 <td>$ {myorder.totalPrice}</td>
                                 <td>
                                     <button
                                         type="button"
-                                        class="btn btn-dark btn-sm rounded-circle"
+                                        class="btn btn-dark btn-sm"
                                     >
-                                        Small button
+                                        Payment
                                     </button>
                                 </td>
                             </tr>

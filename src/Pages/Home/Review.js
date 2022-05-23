@@ -42,7 +42,7 @@ const Review = () => {
                     autoplay
                 >
                     {reviews.map((review) => (
-                        <div className="single-testimonial">
+                        <div key={review._id} className="single-testimonial">
                             <Avatar
                                 className="mx-auto"
                                 src={avt1}

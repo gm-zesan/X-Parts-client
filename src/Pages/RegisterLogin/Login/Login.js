@@ -1,8 +1,7 @@
-import React from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-    useAuthState,
     useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 
@@ -10,6 +9,7 @@ import "./login.css";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../../Hooks/useToken";
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -19,16 +19,18 @@ const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
-    const [user1] = useAuthState(auth);
 
-    if (user1) {
+    if (user) {
+        const email = user?.user?.email;
+        const currentUser = { email };
+        console.log(currentUser);
         const url = `http://localhost:5000/login`;
         fetch(url, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({ email: user1.email }),
+            body: JSON.stringify(currentUser),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -40,9 +42,7 @@ const Login = () => {
     if (loading) {
         return <Loading></Loading>;
     }
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    
     if (error) {
         errorElement = (
             <div>
