@@ -10,14 +10,6 @@ const SinglePart = ({product}) => {
         <>
             <div className="col mb-4">
                 <div className="card h-100 card-degine">
-                    {/* {quantity > 0 ||
-                    (
-                    <span className="soldout-badge badge rounded-pill bg-danger">
-                        sold-out
-                        <span className="visually-hidden">unread messages</span>
-                    </span>
-                )} */}
-
                     <img src="" className="card-img-top mx-auto" alt="..." />
                     <div className="card-body">
                         <h3 className="card-title text-center mb-3">

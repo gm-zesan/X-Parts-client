@@ -18,6 +18,8 @@ const Purchase = () => {
             });
     }, [productId]);
 
+    let errorElement;
+
     const hanldeOrder = (event) => {
         event.preventDefault();
         const product = event.target.product.value;
@@ -28,29 +30,33 @@ const Purchase = () => {
         const email = event.target.email.value;
         const phone = event.target.phone.value;
         const address = event.target.address.value;
-
-        const url = `http://localhost:5000/order`;
-        fetch(url, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({
-                product,
-                quantity,
-                totalPrice,
-                name,
-                email,
-                phone,
-                address,
-            }),
-        })
-            .then((res) => res.json())
-            .then((result) => {
-                console.log(result);
-                toast.success("Review posted successfully");
-                event.target.reset();
-            });
+        if (quantity < 100) {
+            event.target.reset();
+            toast.error("Quantity should be greater then 100");
+        } else {
+            const url = `http://localhost:5000/order`;
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    product,
+                    quantity,
+                    totalPrice,
+                    name,
+                    email,
+                    phone,
+                    address,
+                }),
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    console.log(result);
+                    toast.success("Review posted successfully");
+                    event.target.reset();
+                });
+        }
     };
     return (
         <div className="container my-5">
@@ -144,6 +150,7 @@ const Purchase = () => {
                                 required
                             ></textarea>
                         </Form.Group>
+                        {errorElement}
                         <button
                             type="submit"
                             className="btn-custom w-100 mt-3 mb-5"

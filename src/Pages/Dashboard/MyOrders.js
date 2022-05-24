@@ -1,4 +1,5 @@
 import axios from "axios";
+import { confirm } from "react-confirm-box";
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -35,6 +36,37 @@ const MyOrders = () => {
         };
         getOrders();
     }, [user]);
+
+
+    const cancelOrder = async (id) => {
+        const options = {
+            closeOnOverlayClick: true,
+            labels: {
+                confirmable: "Yes",
+                cancellable: "No",
+            },
+        };
+        const result = await confirm("Are you sure?", options);
+        if (result) {
+            const url = `http://localhost:5000/myorder/${id}`;
+            fetch(url, {
+                method: "DELETE",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    const remaining = myOrders.filter(
+                        (product) => product._id !== id
+                    );
+                    setMyOrders(remaining);
+                    toast.success("Order canceled successfully");
+                });
+        }
+    };
     return (
         <div>
             <h2 className="my-5 text-center">
@@ -50,6 +82,7 @@ const MyOrders = () => {
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
                             <th scope="col">Payment</th>
+                            <th scope="col">Cancel</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,6 +99,11 @@ const MyOrders = () => {
                                             to={`/dashboard/payment/${myorder._id}`}
                                         >
                                             <button
+                                                // onClick={() =>
+                                                //     handlePament(
+                                                //         `${myorder._id}`
+                                                //     )
+                                                // }
                                                 type="button"
                                                 className="btn btn-dark btn-sm"
                                             >
@@ -77,6 +115,28 @@ const MyOrders = () => {
                                         <span className="text-success">
                                             Paid
                                         </span>
+                                    )}
+                                </td>
+                                <td>
+                                    {myorder.totalPrice && !myorder.paid && (
+                                        <button
+                                            onClick={() =>
+                                                cancelOrder(`${myorder._id}`)
+                                            }
+                                            type="button"
+                                            className="btn btn-danger btn-sm"
+                                        >
+                                            Cancel
+                                        </button>
+                                    )}
+
+                                    {myorder.totalPrice && myorder.paid && (
+                                        <p>
+                                            Transaction id:{" "}
+                                            <span className="text-success">
+                                                {myorder.transactionId}
+                                            </span>
+                                        </p>
                                     )}
                                 </td>
                             </tr>
