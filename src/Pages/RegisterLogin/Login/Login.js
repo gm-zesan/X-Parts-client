@@ -9,7 +9,6 @@ import "./login.css";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import Loading from "../../Shared/Loading/Loading";
-import useToken from "../../../Hooks/useToken";
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,7 +22,6 @@ const Login = () => {
     if (user) {
         const email = user?.user?.email;
         const currentUser = { email };
-        console.log(currentUser);
         const url = `http://localhost:5000/login`;
         fetch(url, {
             method: "POST",

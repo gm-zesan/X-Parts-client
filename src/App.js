@@ -19,6 +19,8 @@ import RequireAdmin from "./Pages/RegisterLogin/RequireAdmin/RequireAdmin";
 import ManageOrder from "./Pages/Dashboard/ManageOrder";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProduct from "./Pages/Dashboard/ManageProduct";
+import NoPage from "./Pages/NoPage/NoPage";
+import Payment from "./Pages/Dashboard/Payment";
 
 function App() {
     return (
@@ -46,6 +48,7 @@ function App() {
                     <Route index element={<MyOrders />} />
                     <Route path="review" element={<Review />} />
                     <Route path="profile" element={<Profile />} />
+                    <Route path="payment/:id" element={<Payment />} />
                     <Route
                         path="alluser"
                         element={
@@ -85,6 +88,7 @@ function App() {
                     element={<ForgotPass></ForgotPass>}
                 ></Route>
                 <Route path="/register" element={<Register></Register>}></Route>
+                <Route path="*" element={<NoPage></NoPage>}></Route>
             </Routes>
             <Toaster position="top-center" reverseOrder={true} />
             <Footer></Footer>

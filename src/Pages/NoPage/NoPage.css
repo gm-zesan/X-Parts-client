@@ -1,0 +1,9 @@
+.error {
+    height: calc(100vh - 80px);
+}
+.error-img {
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}

@@ -16,8 +16,8 @@ const ManageOrder = () => {
                 My all <span style={{ color: "#008037" }}>Orders</span>
             </h2>
             <div className="table-responsive">
-                <table class="table text-center">
-                    <thead class="thead-dark">
+                <table className="table text-center">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Id</th>
@@ -29,9 +29,9 @@ const ManageOrder = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allOrders.map((allorder) => (
+                        {allOrders.map((allorder, index) => (
                             <tr key={allorder._id}>
-                                <th scope="row">1</th>
+                                <th scope="row">{index + 1}</th>
                                 <td>{allorder._id}</td>
                                 <td>{allorder.product}</td>
                                 <td>{allorder.quantity}</td>
@@ -39,7 +39,7 @@ const ManageOrder = () => {
                                 <td>
                                     <button
                                         type="button"
-                                        class="btn btn-dark btn-sm"
+                                        className="btn btn-dark btn-sm"
                                     >
                                         Payment
                                     </button>
@@ -47,7 +47,7 @@ const ManageOrder = () => {
                                 <td>
                                     <button
                                         type="button"
-                                        class="btn btn-dark btn-sm"
+                                        className="btn btn-dark btn-sm"
                                     >
                                         Shifting
                                     </button>

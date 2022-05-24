@@ -13,38 +13,38 @@ const Dashboard = () => {
     };
 
     return (
-        <div class="d-flex" id="wrapper">
-            <div class="border-end bg-white sidebar-wrapper">
-                <div class="list-group list-group-flush">
+        <div className="d-flex" id="wrapper">
+            <div className="border-end bg-white sidebar-wrapper">
+                <div className="list-group list-group-flush">
                     {admin ? (
                         <>
                             <Link
                                 to="manageorders"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
-                                Manage Orders 
+                                Manage Orders
                             </Link>
                             <Link
                                 to="addproduct"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 Add Product
                             </Link>
                             <Link
                                 to="manageproducts"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 Manage Product
                             </Link>
                             <Link
                                 to="alluser"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 All User
                             </Link>
                             <Link
                                 to="profile"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 My Profile
                             </Link>
@@ -53,20 +53,20 @@ const Dashboard = () => {
                         <>
                             <Link
                                 to=""
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 My Orders
                             </Link>
                             <Link
                                 to="review"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 Add a Review
                             </Link>
 
                             <Link
                                 to="profile"
-                                class="list-group-item list-group-item-action list-group-item-light p-3"
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 My Profile
                             </Link>
@@ -77,7 +77,7 @@ const Dashboard = () => {
             <div id="page-content-wrapper" className="w-100">
                 <div className="container">
                     <button
-                        class="btn btn-primary dashboard_menu d-md-none"
+                        className="btn btn-primary dashboard_menu d-md-none"
                         onClick={click_toggle}
                     >
                         +

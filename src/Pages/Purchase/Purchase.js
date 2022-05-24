@@ -42,7 +42,7 @@ const Purchase = () => {
                 name,
                 email,
                 phone,
-                address
+                address,
             }),
         })
             .then((res) => res.json())
@@ -50,7 +50,6 @@ const Purchase = () => {
                 console.log(result);
                 toast.success("Review posted successfully");
                 event.target.reset();
-                
             });
     };
     return (
@@ -138,7 +137,7 @@ const Purchase = () => {
                         <Form.Label className="h5">Address</Form.Label>
                         <Form.Group className="mb-3">
                             <textarea
-                                class="form-control"
+                                className="form-control"
                                 name="address"
                                 placeholder="Type your address"
                                 rows="3"

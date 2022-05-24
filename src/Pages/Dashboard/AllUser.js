@@ -21,29 +21,30 @@ const AllUser = () => {
     }
     return (
         <div>
-            <h2 className="text-2xl my-5 text-center">Total Users: {users.length}</h2>
-            <div class="overflow-x-auto table-responsive">
-                <table class="table text-center">
-                    <thead class="thead-dark">
+            <h2 className="text-2xl my-5 text-center">
+                Total Users: {users.length}
+            </h2>
+            <div className="overflow-x-auto table-responsive">
+                <table className="table text-center">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Designation</th>
                             <th scope="col">Make Admin</th>
-                            <th scope="col">Remove User</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
+                        {users.map((user, index) => (
                             <UserRow
                                 key={user._id}
                                 user={user}
+                                index={index + 1}
                                 refetch={refetch}
                             ></UserRow>
                         ))}
                     </tbody>
-                    
                 </table>
             </div>
         </div>
