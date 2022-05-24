@@ -21,6 +21,7 @@ import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProduct from "./Pages/Dashboard/ManageProduct";
 import NoPage from "./Pages/NoPage/NoPage";
 import Payment from "./Pages/Dashboard/Payment";
+import Portfolio from "./Pages/Portfolio/Portfolio";
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/blog" element={<Blog></Blog>}></Route>
+                <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
                 <Route
                     path="/order/:productId"
                     element={

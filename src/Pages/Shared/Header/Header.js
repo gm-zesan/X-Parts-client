@@ -38,6 +38,9 @@ const Header = () => {
                             <CustomLink className="nav-link" to="/blog">
                                 Blog
                             </CustomLink>
+                            <CustomLink className="nav-link" to="/portfolio">
+                                Portfolio
+                            </CustomLink>
                             {user && (
                                 <>
                                     <CustomLink className="nav-link" to="/dashboard">

@@ -5,6 +5,7 @@ import Review from "./Review";
 import Summary from "./Summary";
 import Welcome from "../../images/welcome.png";
 import Parts from "./Parts";
+import Skill from "./Skill";
 const Home = () => {
     return (
         <div>
@@ -46,6 +47,7 @@ const Home = () => {
                 </div>
             </div>
             <Parts></Parts>
+            <Skill></Skill>
             <Summary></Summary>
             <Review></Review>
         </div>
