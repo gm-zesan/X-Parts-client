@@ -30,7 +30,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/blog" element={<Blog></Blog>}></Route>
-                <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
+                <Route
+                    path="/portfolio"
+                    element={<Portfolio></Portfolio>}
+                ></Route>
                 <Route
                     path="/order/:productId"
                     element={
@@ -47,9 +50,9 @@ function App() {
                         </RequireAuth>
                     }
                 >
-                    <Route index element={<MyOrders />} />
+                    <Route index element={<Profile />} />
+                    <Route path="myorders" element={<MyOrders />} />
                     <Route path="review" element={<Review />} />
-                    <Route path="profile" element={<Profile />} />
                     <Route path="payment/:id" element={<Payment />} />
                     <Route
                         path="alluser"

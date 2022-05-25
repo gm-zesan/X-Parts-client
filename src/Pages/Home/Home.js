@@ -14,28 +14,23 @@ const Home = () => {
                 <div className="container welcome-wrap">
                     <h2 className="text-center">
                         WELOME TO{" "}
-                        <span style={{ color: "#008037" }}>GREENO</span>
+                        <span style={{ color: "#008037" }}>X-PARTS</span>
                     </h2>
                     <div className="row align-items-center">
                         <div className="col-md-6">
                             <p className="text-justify">
-                                Welcome to my Greeno Organic store. You don't
-                                have to cook fancy or complicated masterpieces -
-                                just good food from fresh ingredients. We must
-                                make organic the conventional choice and not the
-                                exception available only to the rich and
-                                educated.
-                                <hr />
-                                For the organic food, the less it's designed,
-                                the better it is. Taste and style is beyond
-                                clothes. It's in food; it's in quality. Working
-                                out, healthy bodies, organic food-they're all
-                                part of the same thing. So always you are
-                                welcome to my <strong>Greeno</strong>.
+                                I am Zesan. My goal is in 2022 to become a
+                                fullstack developer. It is so much challanging
+                                to me. But I have to do it.I want to be a
+                                fullstack developer.
+                                <hr />I want to move forward with this in mind.
+                                I think 2022 is going to be the most challenging
+                                for me. And it will bring the biggest change in
+                                my life inshallah.<strong>X-Parts</strong>.
                             </p>
                         </div>
                         <div className="col-md-6">
-                            <div className="w-75 mx-auto">
+                            <div className="mx-auto text-right">
                                 <img
                                     className="img-fluid"
                                     src={Welcome}

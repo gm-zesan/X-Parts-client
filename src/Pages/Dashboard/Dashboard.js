@@ -19,6 +19,12 @@ const Dashboard = () => {
                     {admin ? (
                         <>
                             <Link
+                                to=""
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
+                            >
+                                My Profile
+                            </Link>
+                            <Link
                                 to="manageorders"
                                 className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
@@ -42,17 +48,17 @@ const Dashboard = () => {
                             >
                                 All User
                             </Link>
-                            <Link
-                                to="profile"
-                                className="list-group-item list-group-item-action list-group-item-light p-3"
-                            >
-                                My Profile
-                            </Link>
                         </>
                     ) : (
                         <>
                             <Link
                                 to=""
+                                className="list-group-item list-group-item-action list-group-item-light p-3"
+                            >
+                                My Profile
+                            </Link>
+                            <Link
+                                to="myorders"
                                 className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 My Orders
@@ -62,13 +68,6 @@ const Dashboard = () => {
                                 className="list-group-item list-group-item-action list-group-item-light p-3"
                             >
                                 Add a Review
-                            </Link>
-
-                            <Link
-                                to="profile"
-                                className="list-group-item list-group-item-action list-group-item-light p-3"
-                            >
-                                My Profile
                             </Link>
                         </>
                     )}

@@ -52,7 +52,6 @@ const Purchase = () => {
             })
                 .then((res) => res.json())
                 .then((result) => {
-                    console.log(result);
                     toast.success("Review posted successfully");
                     event.target.reset();
                 });
@@ -62,11 +61,11 @@ const Purchase = () => {
         <div className="container my-5">
             <div className="row mb-5 align-items-center justify-content-center">
                 <div className="col-md-6 text-center">
-                    <img src="" alt="" />
+                    <img src={product.image} alt="" />
                 </div>
 
                 <div className="col-md-6">
-                    <p className="h2">Order Id:{productId}</p>
+                    <p className="h5">Pro code:{productId}</p>
                     <p className="h2">{product.name}</p>
                     <p className="h4">Price : $ {product.price} per ps</p>
                     <p className="desc">{product.description}</p>

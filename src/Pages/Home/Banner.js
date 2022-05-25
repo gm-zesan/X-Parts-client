@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="hero-container">
                 <div className="heading">
                     <h2 className="hero title">Healthy Food</h2>
-                    <p>
+                    <p className='text-white'>
                         Grow your{" "}
                         <span style={{ color: "#008037" }}>
                             <strong>strength</strong>

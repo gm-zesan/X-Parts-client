@@ -10,7 +10,7 @@ const SinglePart = ({product}) => {
         <>
             <div className="col mb-4">
                 <div className="card h-100 card-degine">
-                    <img src="" className="card-img-top mx-auto" alt="..." />
+                    <img src={product.image} className="card-img-top mx-auto" alt="..." />
                     <div className="card-body">
                         <h3 className="card-title text-center mb-3">
                             {product.name}

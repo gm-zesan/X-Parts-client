@@ -78,7 +78,7 @@ const Skill = () => {
 
                         <div class="progress">
                             <span class="skill">
-                                WordPress/CMS <i class="val">90%</i>
+                                React <i class="val">90%</i>
                             </span>
                             <div class="progress-bar-wrap">
                                 <div
@@ -94,7 +94,7 @@ const Skill = () => {
 
                         <div class="progress">
                             <span class="skill">
-                                Photoshop <i class="val">55%</i>
+                                Express <i class="val">55%</i>
                             </span>
                             <div class="progress-bar-wrap">
                                 <div

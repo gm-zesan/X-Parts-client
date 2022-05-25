@@ -1,29 +1,28 @@
-
 .section-bg {
-  background-color: #e7f8f6;
+    background-color: #e7f8f6;
 }
 
 .section-title {
-  text-align: center;
-  padding-bottom: 30px;
+    text-align: center;
+    padding-bottom: 30px;
 }
 .section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
 }
 .section-title h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: #34b7a7;
-  bottom: 0;
-  left: calc(50% - 25px);
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #34b7a7;
+    bottom: 0;
+    left: calc(50% - 25px);
 }
 .about .content h3 {
     font-weight: 700;
@@ -36,4 +35,11 @@
 }
 .about .content ul li {
     padding-bottom: 10px;
+}
+.portimg {
+    height: 350px;
+    width: 350px;
+}
+.avatarimg {
+    width: 250px;
 }

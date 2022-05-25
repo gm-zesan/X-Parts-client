@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Facebook from "../../../images/social-icon/facebook.png";
-// import Git from "../../../images/social-icon/github.png";
-// import Google from "../../../images/social-icon/google.png";
+import Facebook from "../../../images/social-icon/facebook.png";
+import Git from "../../../images/social-icon/github.png";
+import Google from "../../../images/social-icon/google.png";
 import "./Footer.css";
 const Footer = () => {
     const today = new Date();
@@ -15,7 +15,7 @@ const Footer = () => {
                         <div className="col-md-3">
                             <div className="widget_box social_icons">
                                 <h6>Let's Connect</h6>
-                                {/* <Link to="/">
+                                <Link to="/">
                                     <img
                                         className="icon"
                                         src={Facebook}
@@ -27,7 +27,7 @@ const Footer = () => {
                                 </Link>
                                 <Link to="/" className="pl-3">
                                     <img className="icon" src={Google} alt="" />
-                                </Link> */}
+                                </Link>
                             </div>
                         </div>
                         <div className="col-md-3">
