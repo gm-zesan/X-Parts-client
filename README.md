@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-The project [Create React App](https://x-parts.web.app/).
+The project [X-Parts](https://x-parts.web.app/).
 
 ## Available Scripts
 
