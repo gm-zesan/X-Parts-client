@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ myorder }) => {
     const stripe = useStripe();
@@ -9,6 +11,7 @@ const CheckoutForm = ({ myorder }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret, setClientSecret] = useState("");
+    const navigate = useNavigate();
 
     const { _id, totalPrice, name, email } = myorder;
 
@@ -65,7 +68,6 @@ const CheckoutForm = ({ myorder }) => {
         } else {
             setCardError("");
             setTransactionId(paymentIntent.id);
-            console.log(paymentIntent);
             setSuccess("Congrats! Your payment is completed.");
 
             const payment = {
@@ -85,7 +87,8 @@ const CheckoutForm = ({ myorder }) => {
                 .then((res) => res.json())
                 .then((data) => {
                     setProcessing(false);
-                    console.log(data);
+                    navigate("/dashboard");
+                    toast.success("Payment Successfully");
                 });
         }
     };
