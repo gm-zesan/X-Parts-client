@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-    useSignInWithEmailAndPassword,
-} from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 import "./login.css";
 import auth from "../../../firebase.init";
@@ -12,7 +10,7 @@ import Loading from "../../Shared/Loading/Loading";
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-
+    const { register, handleSubmit } = useForm();
     let from = location.state?.from?.pathname || "/";
     let errorElement;
 
@@ -22,7 +20,7 @@ const Login = () => {
     if (user) {
         const email = user?.user?.email;
         const currentUser = { email };
-        const url = `http://localhost:5000/login`;
+        const url = `https://calm-harbor-28456.herokuapp.com/login`;
         fetch(url, {
             method: "POST",
             headers: {
@@ -40,7 +38,7 @@ const Login = () => {
     if (loading) {
         return <Loading></Loading>;
     }
-    
+
     if (error) {
         errorElement = (
             <div>
@@ -48,24 +46,24 @@ const Login = () => {
             </div>
         );
     }
-    const handleLogin = (event) => {
-        event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password);
+
+    const onSubmit = (data) => {
+        signInWithEmailAndPassword(data.email, data.password);
     };
     return (
         <>
             <div className="register p-5 mt-5">
                 <h2 className="text-center text-info pb-3">Login Here</h2>
-                <Form onSubmit={handleLogin}>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
                             className="input-form"
                             type="email"
-                            name="email"
                             placeholder="Enter email"
+                            {...register("email", {
+                                required: true,
+                            })}
                             required
                         />
                     </Form.Group>
@@ -75,8 +73,10 @@ const Login = () => {
                         <Form.Control
                             className="input-form"
                             type="password"
-                            name="password"
                             placeholder="Password"
+                            {...register("password", {
+                                required: true,
+                            })}
                             required
                         />
                     </Form.Group>

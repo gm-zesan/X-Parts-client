@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const ManageOrder = () => {
     const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/orders", {
+        fetch("https://calm-harbor-28456.herokuapp.com/orders", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -16,7 +16,7 @@ const ManageOrder = () => {
         const selectedItem = allOrders.find((item) => item._id === id);
         if (selectedItem.status === "pending") {
             selectedItem.status = "shipped";
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://calm-harbor-28456.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: "PUT",
                 headers: {
@@ -33,9 +33,9 @@ const ManageOrder = () => {
                 .then((result) => {
                     toast.success("Order is shipped");
                 });
-        } else{
+        } else {
             selectedItem.status = "pending";
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://calm-harbor-28456.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: "PUT",
                 headers: {
@@ -119,9 +119,6 @@ const ManageOrder = () => {
                                     )}
                                     {!allorder.status && (
                                         <button
-                                            onClick={() =>
-                                                handleShifting(allorder._id)
-                                            }
                                             className="btn btn-danger"
                                             title="confirm-order"
                                         >

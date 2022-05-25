@@ -1,9 +1,9 @@
-import React from 'react';
-import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
-import Loading from '../Shared/Loading/Loading';
+import React from "react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
+import Loading from "../Shared/Loading/Loading";
 import { loadStripe } from "@stripe/stripe-js";
-import { Card } from 'react-bootstrap';
+import { Card } from "react-bootstrap";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
 );
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/myorder/${id}`;
+    const url = `https://calm-harbor-28456.herokuapp.com/myorder/${id}`;
     const { data: myorder, isLoading } = useQuery(["myorder", id], () =>
         fetch(url, {
             method: "GET",
@@ -33,7 +33,7 @@ const Payment = () => {
                     <Card.Subtitle className="mb-2 text-info">
                         {myorder.name}
                     </Card.Subtitle>
-                    <Card.Text >
+                    <Card.Text>
                         <p>Quantity : {myorder.quantity}</p>
                         <p>Price : {myorder.totalPrice}</p>
                     </Card.Text>

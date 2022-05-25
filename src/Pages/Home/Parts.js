@@ -4,7 +4,7 @@ import SinglePart from "./SinglePart";
 const Parts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/product")
+        fetch("https://calm-harbor-28456.herokuapp.com/product")
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);

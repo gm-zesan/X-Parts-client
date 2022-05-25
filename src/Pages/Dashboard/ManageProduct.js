@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { confirm } from "react-confirm-box";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 const ManageProduct = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/product")
+        fetch("https://calm-harbor-28456.herokuapp.com/product")
             .then((res) => res.json())
             .then((data) => setItems(data));
     }, []);
-
 
     const handleDelete = async (id) => {
         console.log("clicked");
@@ -21,7 +20,7 @@ const ManageProduct = () => {
         };
         const result = await confirm("Are you sure?", options);
         if (result) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://calm-harbor-28456.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: "DELETE",
                 headers: {

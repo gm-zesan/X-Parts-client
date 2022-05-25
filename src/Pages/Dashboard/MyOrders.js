@@ -13,7 +13,7 @@ const MyOrders = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/myorders?email=${email}`;
+            const url = `https://calm-harbor-28456.herokuapp.com/myorders?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -37,7 +37,6 @@ const MyOrders = () => {
         getOrders();
     }, [user]);
 
-
     const cancelOrder = async (id) => {
         const options = {
             closeOnOverlayClick: true,
@@ -48,7 +47,7 @@ const MyOrders = () => {
         };
         const result = await confirm("Are you sure?", options);
         if (result) {
-            const url = `http://localhost:5000/myorder/${id}`;
+            const url = `https://calm-harbor-28456.herokuapp.com/myorder/${id}`;
             fetch(url, {
                 method: "DELETE",
                 headers: {

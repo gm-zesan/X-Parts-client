@@ -9,7 +9,7 @@ const Review = () => {
         const comment = event.target.comment.value;
         const rating = event.target.rating.value;
 
-        const url = `http://localhost:5000/rating`;
+        const url = `https://calm-harbor-28456.herokuapp.com/rating`;
         fetch(url, {
             method: "POST",
             headers: {

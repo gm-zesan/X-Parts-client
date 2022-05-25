@@ -9,7 +9,7 @@ const Profile = () => {
     const [info, setInfo] = useState([]);
     useEffect(() => {
         const email = user.email;
-        const url = `http://localhost:5000/user/${email}`;
+        const url = `https://calm-harbor-28456.herokuapp.com/user/${email}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setInfo(data));
@@ -21,7 +21,7 @@ const Profile = () => {
         const phone = event.target.phone.value;
         const address = event.target.address.value;
         const designation = event.target.designation.value;
-        const url = `http://localhost:5000/user/${email}`;
+        const url = `https://calm-harbor-28456.herokuapp.com/user/${email}`;
         fetch(url, {
             method: "PUT",
             headers: {

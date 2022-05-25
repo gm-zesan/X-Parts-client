@@ -1,6 +1,6 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
-import toast from 'react-hot-toast';
+import React from "react";
+import { Form } from "react-bootstrap";
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
     const handleProduct = (event) => {
@@ -10,7 +10,7 @@ const AddProduct = () => {
         const quantity = event.target.quantity.value;
         const description = event.target.description.value;
         const image = event.target.image.value;
-        const url = `http://localhost:5000/product`;
+        const url = `https://calm-harbor-28456.herokuapp.com/product`;
         fetch(url, {
             method: "POST",
             headers: {
