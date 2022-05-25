@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const ManageOrder = () => {
     const [allOrders, setAllOrders] = useState([]);
@@ -9,11 +10,55 @@ const ManageOrder = () => {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
         }).then((res) => res.json().then((data) => setAllOrders(data)));
-    }, []);
+    }, [allOrders]);
+
+    const handleShifting = (id) => {
+        const selectedItem = allOrders.find((item) => item._id === id);
+        if (selectedItem.status === "pending") {
+            selectedItem.status = "shipped";
+            const url = `http://localhost:5000/order/${id}`;
+            fetch(url, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+                body: JSON.stringify({
+                    status: selectedItem.status,
+                }),
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    toast.success("Order is shipped");
+                });
+        } else{
+            selectedItem.status = "pending";
+            const url = `http://localhost:5000/order/${id}`;
+            fetch(url, {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+                body: JSON.stringify({
+                    status: selectedItem.status,
+                }),
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    console.log(result);
+                    toast.success("Order is reverted to pending");
+                });
+        }
+    };
     return (
         <div>
             <h2 className="my-5 text-center">
-                My all <span style={{ color: "#008037" }}>Orders</span>
+                All <span style={{ color: "#008037" }}>Orders</span>
             </h2>
             <div className="table-responsive">
                 <table className="table text-center">
@@ -37,20 +82,73 @@ const ManageOrder = () => {
                                 <td>{allorder.quantity}</td>
                                 <td>$ {allorder.totalPrice}</td>
                                 <td>
-                                    <button
-                                        type="button"
-                                        className="btn btn-dark btn-sm"
-                                    >
-                                        Payment
-                                    </button>
+                                    {allorder.totalPrice && !allorder.paid && (
+                                        <p className="text-danger fw-bold">
+                                            Not paid yet
+                                        </p>
+                                    )}
+
+                                    {allorder.totalPrice && allorder.paid && (
+                                        <p className="text-success fw-bold">
+                                            Paid
+                                        </p>
+                                    )}
                                 </td>
                                 <td>
-                                    <button
-                                        type="button"
-                                        className="btn btn-dark btn-sm"
-                                    >
-                                        Shifting
-                                    </button>
+                                    {allorder.status === "pending" && (
+                                        <button
+                                            onClick={() =>
+                                                handleShifting(allorder._id)
+                                            }
+                                            className="btn btn-warning"
+                                            title="confirm-order"
+                                        >
+                                            Pending
+                                        </button>
+                                    )}
+                                    {allorder.status === "shipped" && (
+                                        <button
+                                            onClick={() =>
+                                                handleShifting(allorder._id)
+                                            }
+                                            className="btn btn-success"
+                                            title="confirm-order"
+                                        >
+                                            Shipped
+                                        </button>
+                                    )}
+                                    {!allorder.status && (
+                                        <button
+                                            onClick={() =>
+                                                handleShifting(allorder._id)
+                                            }
+                                            className="btn btn-danger"
+                                            title="confirm-order"
+                                        >
+                                            Not paid yet
+                                        </button>
+                                    )}
+                                    {/* {allorder.status === "pending" ? (
+                                        <button
+                                            onClick={() =>
+                                                handleShifting(allorder._id)
+                                            }
+                                            className="btn btn-warning"
+                                            title="confirm-order"
+                                        >
+                                            Pending
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() =>
+                                                handleShifting(allorder._id)
+                                            }
+                                            className="btn btn-success"
+                                            title="revert-order"
+                                        >
+                                            Shipped
+                                        </button>
+                                    )} */}
                                 </td>
                             </tr>
                         ))}
