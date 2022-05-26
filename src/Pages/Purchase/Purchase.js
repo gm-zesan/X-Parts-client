@@ -102,7 +102,7 @@ const Purchase = () => {
                             />
                         </Form.Group>
                         <Form.Label className="h5">
-                            Price pre product
+                            Price per product
                         </Form.Label>
                         <Form.Group className="mb-3">
                             <Form.Control

@@ -21,6 +21,7 @@ const SinglePart = ({product}) => {
                         <h6 className="text-center">
                             Available: {product.availableQnt} ps
                         </h6>
+                        <p className="text-center"><small>Minimum order quantity is : 100 ps</small></p>
                         <hr />
                         <p className="card-text">{product.description}</p>
                     </div>

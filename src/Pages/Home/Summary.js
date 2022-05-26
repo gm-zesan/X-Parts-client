@@ -1,4 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faThumbsUp,
+    faUsers,
+    faMoneyBill,
+    faComputer,
+} from "@fortawesome/free-solid-svg-icons";
 import CountUp from "react-countup";
 const Summary = () => {
     return (
@@ -7,6 +14,9 @@ const Summary = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
+                            <p className="display-4">
+                                <FontAwesomeIcon icon={faUsers} />
+                            </p>
                             <p className="display-5">
                                 <span className="fw-bold">Customers</span>
                                 <br />
@@ -15,6 +25,9 @@ const Summary = () => {
                             </p>
                         </div>
                         <div className="col-md-6">
+                            <p className="display-4">
+                                <FontAwesomeIcon icon={faMoneyBill} />
+                            </p>
                             <p className="display-5">
                                 <span className="fw-bold">Annual revenue</span>
                                 <br />
@@ -25,6 +38,9 @@ const Summary = () => {
                     </div>
                     <div className="row mt-5">
                         <div className="col-md-6">
+                            <p className="display-4">
+                                <FontAwesomeIcon icon={faThumbsUp} />
+                            </p>
                             <p className="display-5">
                                 <span className="fw-bold">Reviews</span>
                                 <br />
@@ -32,6 +48,9 @@ const Summary = () => {
                             </p>
                         </div>
                         <div className="col-md-6">
+                            <p className="display-4">
+                                <FontAwesomeIcon icon={faComputer} />
+                            </p>
                             <p className="display-5">
                                 <span className="fw-bold">served</span>
                                 <br />

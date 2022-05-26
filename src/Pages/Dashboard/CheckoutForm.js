@@ -124,9 +124,8 @@ const CheckoutForm = ({ myorder }) => {
                 <div className="text-success">
                     <p>{success} </p>
                     <p>
-                        Your transaction Id:
-                        <span className="text-danger font-bold">
-                            {transactionId}
+                        <span className="text-success fw-bold">
+                            Payment successfully done.
                         </span>
                     </p>
                 </div>
