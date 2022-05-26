@@ -10,7 +10,6 @@ const ManageProduct = () => {
     }, []);
 
     const handleDelete = async (id) => {
-        console.log("clicked");
         const options = {
             closeOnOverlayClick: true,
             labels: {
@@ -31,7 +30,6 @@ const ManageProduct = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     const remaining = items.filter(
                         (product) => product._id !== id
                     );

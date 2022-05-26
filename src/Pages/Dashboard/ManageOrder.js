@@ -50,7 +50,6 @@ const ManageOrder = () => {
             })
                 .then((res) => res.json())
                 .then((result) => {
-                    console.log(result);
                     toast.success("Order is reverted to pending");
                 });
         }
