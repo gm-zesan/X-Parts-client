@@ -20,7 +20,7 @@ const Login = () => {
     if (user) {
         const email = user?.user?.email;
         const currentUser = { email };
-        const url = `https://calm-harbor-28456.herokuapp.com/login`;
+        const url = `https://x-parts.onrender.com/login`;
         fetch(url, {
             method: "POST",
             headers: {

@@ -16,7 +16,7 @@ const CheckoutForm = ({ myorder }) => {
     const { _id, totalPrice, name, email } = myorder;
 
     useEffect(() => {
-        fetch("https://calm-harbor-28456.herokuapp.com/create-payment-intent", {
+        fetch("https://x-parts.onrender.com/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -74,7 +74,7 @@ const CheckoutForm = ({ myorder }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id,
             };
-            fetch(`https://calm-harbor-28456.herokuapp.com/order/${_id}`, {
+            fetch(`https://x-parts.onrender.com/order/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "content-type": "application/json",

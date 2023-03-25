@@ -10,7 +10,7 @@ const AddProduct = () => {
         const quantity = event.target.quantity.value;
         const description = event.target.description.value;
         const image = event.target.image.value;
-        const url = `https://calm-harbor-28456.herokuapp.com/product`;
+        const url = `https://x-parts.onrender.com/product`;
         fetch(url, {
             method: "POST",
             headers: {

@@ -25,7 +25,7 @@ const NextBtn = (props) => {
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch("https://calm-harbor-28456.herokuapp.com/rating")
+        fetch("https://x-parts.onrender.com/rating")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);

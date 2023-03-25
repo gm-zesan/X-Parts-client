@@ -4,7 +4,7 @@ import SinglePart from "./SinglePart";
 const Parts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("https://calm-harbor-28456.herokuapp.com/product")
+        fetch("https://x-parts.onrender.com/product")
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);

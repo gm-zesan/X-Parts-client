@@ -10,7 +10,7 @@ const Purchase = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        const url = `https://calm-harbor-28456.herokuapp.com/order/${productId}`;
+        const url = `https://x-parts.onrender.com/order/${productId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
@@ -34,7 +34,7 @@ const Purchase = () => {
             event.target.reset();
             toast.error("Quantity should be greater then 100");
         } else {
-            const url = `https://calm-harbor-28456.herokuapp.com/order`;
+            const url = `https://x-parts.onrender.com/order`;
             fetch(url, {
                 method: "POST",
                 headers: {

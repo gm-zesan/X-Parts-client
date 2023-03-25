@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const ManageProduct = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch("https://calm-harbor-28456.herokuapp.com/product")
+        fetch("https://x-parts.onrender.com/product")
             .then((res) => res.json())
             .then((data) => setItems(data));
     }, []);
@@ -19,7 +19,7 @@ const ManageProduct = () => {
         };
         const result = await confirm("Are you sure?", options);
         if (result) {
-            const url = `https://calm-harbor-28456.herokuapp.com/product/${id}`;
+            const url = `https://x-parts.onrender.com/product/${id}`;
             fetch(url, {
                 method: "DELETE",
                 headers: {
